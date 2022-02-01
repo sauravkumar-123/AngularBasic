@@ -1,0 +1,43 @@
+    <h2>Product Catalog</h2>
+
+    <div class="prod-container">
+        MinPrice:<input type="text" [(ngModel)]="minprice">  MaxPrice:<input type="text" [(ngModel)]="maxprice">
+
+     <!--Structural Directives-->
+     <!-- Choose Category:
+     <select [(ngModel)]='selectedCategory'>
+         <option value="Electronics">Electronics</option>
+         <option value="Home Applicances">Home Applicances</option>
+         <option value="Fashoin">Fashoin</option>
+         <option value="Stationary">Stationary</option>
+         <option value="Mobile">Mobile</option> 
+         <option *ngFor="let Category of Categories">{{Category}}</option>
+     </select> -->
+
+        <table>
+            <tr>
+              <th>productCode</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <th>productName</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <th>price</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <th>category</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <th>Images</th>&nbsp;&nbsp;
+            </tr>
+            
+            <br>
+
+        <!--Directives -->
+        <!-- <ng-container *ngFor="let product of productCatalog"> -->
+           <!-- <tr *ngIf="product.category == selectedCategory" [ngStyle]="{'color':product.category == 'selectedCategory'?'blue':'green'}"> -->
+            <tr *ngFor="let product of productCatalog | productfilter : minprice : maxprice">    
+                <td>{{product.productCode}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td><a [routerLink]="['/productDetails',product.productCode]">{{product.productName}}</a></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- <td [ngClass]="product.price>=10000?'class-first':'class-second'">{{product.price}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                <td>{{product.price}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{product.category}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td><img [src]="product.imagePath" height="100px" width="100px"/></td>
+            </tr>
+        <br>
+        </table>
+    </div>
+    
+

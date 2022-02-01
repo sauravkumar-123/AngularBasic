@@ -1,0 +1,31 @@
+
+    <div class="container">
+        <h2>Spots Records:</h2>
+        <b>Enter State:</b><input type="text" name="state" [(ngModel)]="state"/> &nbsp;
+        <button type='submit'  value="GetRecord" (click)='getSpotRecordByState()'>Click Here</button>
+        <!-- <p><b>{{Msg}}</b></p> -->
+        
+          <table class="table table-striped">
+                <tr>
+                  <th>ID</th>&nbsp;&nbsp;;
+                  <th>SpotsName</th>&nbsp;&nbsp;
+                  <th>City</th>&nbsp;&nbsp;;
+                  <th>State</th>&nbsp;&nbsp;
+                </tr>
+                
+                <br>
+    
+            <!--Directives -->
+            <div *ngIf="Status">
+               <tr>
+                    <td>{{touristSpots.id | uppercase}}</td>&nbsp;&nbsp;
+                    <td>{{touristSpots.name | titlecase}}</td>&nbsp;&nbsp;
+                    <td>{{touristSpots.city | titlecase}}</td>&nbsp;&nbsp;
+                    <td>{{touristSpots.state | titlecase}}</td>&nbsp;&nbsp;
+                </tr>
+              </div>   
+            <br>
+          </table> 
+        <p *ngIf="!Status"><b>{{Msg}}</b></p>
+        </div>
+        

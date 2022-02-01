@@ -1,0 +1,30 @@
+<h2 style="color: black">Choose Location: &nbsp;
+<diV class="row">
+    <diV class="col-xs-3">
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" name="location" id="location" value="All" [(ngModel)]="selectedLocation" (change)="onLocationChange()"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{"All ("+ employeeCount +")"}}</label> &nbsp;&nbsp;&nbsp;
+            </div>   
+            
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" name="location" id="location" value="Bangalore" [(ngModel)]="selectedLocation" (change)="onLocationChange()"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{"Bangalore ("+ BangaloreCount +")"}}</label> &nbsp;&nbsp;&nbsp;
+            </div> 
+
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" name="location" id="location" value="Cheenai" [(ngModel)]="selectedLocation" (change)="onLocationChange()"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{"Cheenai ("+ CheenaiCount +")"}}</label> &nbsp;&nbsp;&nbsp;
+            </div> 
+
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" name="location" id="location" value="Hydrabad" [(ngModel)]="selectedLocation" (change)="onLocationChange()"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{"Hydrabad ("+ HydrabadCount +")"}}</label> &nbsp;&nbsp;&nbsp;
+            </div>
+
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" name="location" id="location" value="Delhi" [(ngModel)]="selectedLocation" (change)="onLocationChange()"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{"Delhi ("+ DelhiCount +")"}}</label>
+            </div>
+    </diV>
+</diV>
+</h2>

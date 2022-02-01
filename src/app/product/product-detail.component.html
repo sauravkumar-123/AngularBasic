@@ -1,0 +1,29 @@
+<h2>Product Details</h2>
+
+<table class="table table-success table-striped">
+
+ <tbody>
+    <!--Directives -->
+    <tr>
+        <td>productCode</td><td>{{product.productCode}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </tr>
+
+    <tr>
+        <td>productName</td><td>{{product.productName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </tr>
+
+    <tr>
+        <td>price</td><td>{{product.price}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </tr>
+
+    <tr>
+        <td>category</td><td>{{product.category}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </tr>
+
+    <tr>
+        <td>Images</td><td><img [src]="product.imagePath" height="100px" width="100px"/></td>
+    </tr>
+  </tbody>
+</table>
+
+<a (click)="goback()" href="">Go Back</a>

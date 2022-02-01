@@ -1,0 +1,38 @@
+<h1>Student Details</h1>
+
+<div class="stu-container">
+    <table>
+        <tr>
+          <th>RegNo &nbsp;</th>
+          <th>StudentName &nbsp;</th>
+          <th>Age &nbsp;</th>
+          <th>Email &nbsp;</th>
+          <th>MobNo &nbsp;</th>
+          <th>Course &nbsp;</th>
+          <th>Stream &nbsp;</th>
+          <th>Fee &nbsp;</th>
+        </tr>
+        <tr>
+          <td>{{studentModel.RegNo}}</td>
+          <td>{{studentModel.StudentName}}</td>
+          <td>{{studentModel.Age}}</td>
+          <td>{{studentModel.Email}}</td>
+          <td>{{studentModel.MobNo}}</td>
+          <td>{{studentModel.Course}}</td>
+          <td>{{studentModel.Stream}}</td>
+          <td>{{studentModel.Fee}}</td>
+        </tr>
+        <br>
+      </table>
+
+      <table>
+            <tr><td>RegNo:</td><td><input type="text" name="regno" [(ngModel)]="studentModel.RegNo"></td></tr>
+            <tr><td>StudentName:</td><td><input type="text" name="studentName" [(ngModel)]="studentModel.StudentName"></td></tr>
+            <tr><td>Age:</td><td><input type="text" name="age" [(ngModel)]="studentModel.Age"></td></tr>
+            <tr><td>Email:</td><td><input type="text" name="email" [(ngModel)]="studentModel.Email"></td></tr>
+            <tr><td>MobNo:</td><td><input type="text" name="mobno" [(ngModel)]="studentModel.MobNo"></td></tr>
+            <tr><td>Course:</td><td><input type="text" name="course" [(ngModel)]="studentModel.Course"></td></tr>
+            <tr><td>Stream:</td><td><input type="text" name="stream" [(ngModel)]="studentModel.Stream"></td></tr>
+            <tr><td>Fee:</td><td><input type="text" name="fee" [(ngModel)]="studentModel.Fee"></td></tr>
+      </table>
+</div>

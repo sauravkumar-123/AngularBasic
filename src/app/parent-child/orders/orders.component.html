@@ -1,0 +1,18 @@
+<h2>Orders Details</h2>
+
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">orderId</th>
+        <th scope="col">orderDate</th>
+        <th scope="col">salesRepId</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orders of customerOrders | orderfilter : salesRepId">
+        <td>{{orders.orderId | uppercase}}</td>
+        <td>{{orders.orderDate | date:'fullDate'}}</td>
+        <td>{{orders.salesRepId | uppercase}}</td>
+      </tr>
+    </tbody>
+  </table>

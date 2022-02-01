@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-xs-12">
+        <app-employeecount [employeeCount]="countAllEmployee()"
+                           [BangaloreCount]="countBangaloreEmoplyee()"                   
+                           [CheenaiCount]="countCheenaiEmoplyee()"
+                           [HydrabadCount]="countHydrabadEmoplyee()"
+                           [DelhiCount]="countDelhiEmoplyee()"
+                           (locationEventChange)="receivedLocation($event)">                          
+        </app-employeecount>
+    </div>
+</div> 
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 style="background-color: black; color: whitesmoke;">Employee Details</h2>
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">EmployeeId</th>
+        <th scope="col">Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">DOJ</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Department</th>
+        <th scope="col">Location</th>
+      </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let emp of employeeList">     
+      <tr *ngIf="emp.location == selectedLocation || selectedLocation == 'All'">
+        <td>{{emp.empId | uppercase}}</td>
+        <td>{{emp.fullName() | titlecase}}</td>
+        <td>{{emp.salary | currency:'INR':true}}</td>
+        <td>{{emp.doj | date:'dd/MM/yyyy'}}</td>
+        <td>{{emp.designation | titlecase}}</td>
+        <td>{{emp.department | titlecase}}</td>
+        <td>{{emp.location | titlecase}}</td>
+      </tr>
+    </ng-container>  
+    </tbody>
+  </table>
+
+    </div>
+</div>
+
+

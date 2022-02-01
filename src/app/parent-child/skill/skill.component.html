@@ -1,0 +1,17 @@
+<h2 style="background-color: black; color: whitesmoke;">Skills</h2>
+
+<diV class="row">
+    <diV class="col-xs-3">
+        <b>Coose Skill: </b>
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group" *ngFor="let skill of skills">
+               <input type="radio" name="skill" id="skill" (change)="onSkillSelected(skill)" [value]="skill.skill"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{skill.skill}}</label> &nbsp;
+            </div>       
+    </diV>
+</diV>
+
+<div class="row">
+    <div class="col-xs-3">
+        <app-employeedetails [skill]='skill'></app-employeedetails>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<h2 style="background-color: black; color: whitesmoke;">SalesRep</h2>
+
+<diV class="row">
+    <diV class="col-xs-3">
+    <!-- <h3><input type="radio"
+        name="salesRepId"
+        (change)="onSalesRepIdSelected(salesrep)"
+        [value]="salesrep.salesRepId"/>&nbsp;
+        {{salesrep.salesRepId}} <br> {{salesrep.salesRepName}}
+       </h3> -->
+        
+     <!-- <h3>  
+            <input type="radio" 
+            name="salesrep" 
+            id="salesrep" 
+            (change)="onSalesRepIdSelected(salesrep)"
+            [value]="salesrep.salesRepId"/>&nbsp; 
+            {{salesrep.salesRepId}} <br> {{salesrep.salesRepName}}
+
+    </h3> -->
+            <!-- <label class="btn btn-outline-dark" for="btnradio1">&nbsp; {{salesrep.salesRepId}} <br> {{salesrep.salesRepName}}</label> -->
+          
+            <div class="form-check form-check-inline" role="group" aria-label="Basic radio toggle button group" *ngFor="let salesrep of SalesReps">
+                <input type="radio" name="salesRepId" id="salesRepId" (change)="onSalesRepIdSelected(salesrep)" [value]="salesrep.salesRepId"/>
+                <label class="fbtn btn-outline-dark" for="btnradio">{{salesrep.salesRepId}} <br> {{salesrep.salesRepName}}</label> &nbsp;
+            </div>       
+                  
+
+    </diV>
+</diV>
+
+<div class="row">
+    <div class="col-xs-3">
+        <app-orders [salesRepId]='salesRepId'></app-orders>
+    </div>
+</div>

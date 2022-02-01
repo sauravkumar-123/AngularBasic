@@ -1,0 +1,150 @@
+<div class="contact-container">
+    <h2>Contact Form....</h2>
+
+    <form class="row g-3" #contactForm="ngForm" (ngSubmit)=addContact()> 
+        <p>
+            Valid Form:{{contactForm.valid}} <br>
+            pristine:{{contactForm.pristine}} <br>
+            touched:{{contactForm.touched}} <br>
+            Dirty :{{contactForm.valid}} <br>
+        </p>
+
+        <div class="col-md-6">
+          <label for="inputName" class="form-label">Contact Name</label>
+          <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="contactFormData.contactName" required minlength="5" maxlength="30" #contactName="ngModel"><br>
+          <div *ngIf="(contactName.touched || contactName.dirty) && contactName.invalid" class="alert alert-danger">
+              <div *ngIf="contactName.errors?.required">
+                ContactName is mandatory.
+            </div>
+            <div *ngIf="contactName.errors?.minlength">
+                Minimum length should be 5.
+            </div>
+            <div *ngIf="contactName.errors?.maxlength">
+                Maximum length should be 30.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="inputEmail" name="inputEmail" [(ngModel)]="contactFormData.email" required pattern="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$" #email="ngModel"> <br>
+  
+            <div *ngIf="(email.touched || email.dirty) && email.invalid" class="alert alert-danger">
+              <div *ngIf="email.errors?.required">
+                Email is required.
+              </div>
+              <div *ngIf="email.errors?.pattern">
+                  Invalid Email.
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="inputMobno" class="form-label">Mob No</label>
+            <input type="text" class="form-control" id="inputMobno" name="inputMobno" [(ngModel)]="contactFormData.mobno" required pattern="[0-9]{10}$" #mobno="ngModel"> <br>
+  
+            <div *ngIf="(mobno.touched || mobno.dirty) && mobno.invalid" class="alert alert-danger">
+              <div *ngIf="mobno.errors?.required">
+                Mobile Number is required.
+              </div>
+              <div *ngIf="mobno.errors?.pattern">
+                  Invalid Mob No.
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-md-6">
+            <label for="inputDob" class="form-label">DOB</label>
+            <input type="date" class="form-control" id="inputDob" name="inputDob" [(ngModel)]="contactFormData.dob" required #dob="ngModel"> <br>
+  
+            <div *ngIf="(dob.touched || dob.dirty) && dob.invalid" class="alert alert-danger">
+              <div *ngIf="dob.errors?.required">
+                Birth Date is required.
+              </div>
+              <div *ngIf="dob.errors?.pattern">
+                  Invalid Birth Date.
+              </div>
+            </div>
+          </div> -->
+
+
+        <div class="col-6">
+            <label for="inputOrganization" class="form-label">Organization</label>
+            <input type="text" class="form-control" id="inputOrganization" name="inputOrganization" [(ngModel)]="contactFormData.organization" required maxlength="30" #organization="ngModel"><br>
+  
+          <div *ngIf="(organization.touched || organization.dirty) && organization.invalid" class="alert alert-danger">
+            <div *ngIf="organization.errors?.required">
+              Organization is mandatory field.
+            </div>
+            <div *ngIf="organization.errors?.maxlength">
+                Maximum 30 character allowed only.
+            </div>
+          </div>
+          </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+          <div class="col-md-6">                                                                                                                                                   
+            <label for="inputDesignation" class="form-label">Designation</label>                                              
+            <select name="ngModel"  class="form-select" [(ngModel)]="contactFormData.designation" #designation="ngModel" required chooseDesignation> <br>
+                <option value="choose">--Choose Designation--</option>
+                <option [value]="designation" *ngFor="let designation of designations">{{designation}}</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="inputDesignation" name="inputDesignation" [(ngModel)]="contactFormData.designation" required maxlength="30" #designation="ngModel"><br>
+  
+            <div *ngIf="(designation.touched || designation.dirty) && designation.invalid" class="alert alert-danger">
+              <div *ngIf="designation.errors?.required">
+                  Designation is mandatory field.                                                    
+            </div>
+            <div *ngIf="designation.errors?.maxlength">                                                                                                                                                                                                         
+                Maximum 30 character allowed only.
+            </div>
+          </div> -->
+
+          <div *ngIf="(designation.touched || designation.dirty) && designation.invalid" class="alert alert-danger">
+            <div *ngIf="designation.errors?.required">
+                Designation is mandatory field.
+          </div>
+
+          <div *ngIf="designation.errors?.chooseDesignation">
+              Choose a  Designation.
+         </div>
+          </div>
+          </div>
+
+        <div class="col-6">
+            <label for="inputCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="inputCity" name="inputCity" [(ngModel)]="contactFormData.city" required maxlength="25" #city="ngModel"> <br>
+  
+            <div *ngIf="(city.touched || city.dirty) && city.invalid" class="alert alert-danger">
+              <div *ngIf="city.errors?.required">
+                City is mandatory field.
+              </div>
+              <div *ngIf="city.errors?.maxlength">
+                  Maximum 30 character allowed only.
+              </div>
+            </div>
+          </div>
+  
+
+        <div class="col-6">
+          <label for="inputState" class="form-label">State</label>
+          <input type="text" class="form-control" id="inputState" name="inputState" [(ngModel)]="contactFormData.state" required maxlength="25" #state="ngModel"> <br>
+
+          <div *ngIf="(state.touched || state.dirty) && state.invalid" class="alert alert-danger">
+            <div *ngIf="state.errors?.required">
+              State is mandatory field.
+            </div>
+            <div *ngIf="state.errors?.maxlength">
+                Maximum 30 character allowed only.
+            </div>
+          </div>
+        </div>
+
+       
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button> &nbsp;
+          <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+
+      </form> 
+</div>

@@ -1,0 +1,17 @@
+
+<h2>Reading Property
+    <p>
+    EmployeeName:{{fullName()}}<br>
+    Age:{{age}}<br>
+    Skills:{{skills}}<br>
+    Salary:{{salary}}<br>
+    location:{{location}}<br><br>
+    </p>  
+    <br>
+    <input type="button" value="clickhere" (click)="onClick()" [disabled]="status"/><br>
+    <div class="img_container">
+        <img src="{{imagePath}}" height="150px" width="150px"/>
+        <img [src]="imagePath" height="150px" width="150px"/>
+    </div>
+</h2>
+

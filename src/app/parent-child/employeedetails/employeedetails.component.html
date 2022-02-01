@@ -1,0 +1,18 @@
+<h2>Employee Details</h2>
+
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">EmployeeName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Skill</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeDetails | employeefilter : skill">
+        <td>{{employee.employeeName | titlecase}}</td>
+        <td>{{employee.email | lowercase}}</td>
+        <td>{{employee.skill | titlecase}}</td>
+      </tr>
+    </tbody>
+</table>

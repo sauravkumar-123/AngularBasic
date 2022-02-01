@@ -1,0 +1,38 @@
+
+    <div class="book-container">
+    <h2>Books Records:</h2>
+    <b>Enter Bookid:</b><input type="text" name="bookid" [(ngModel)]="bookid"/> &nbsp;
+    <button type='submit'  value="GetBookRecord" (click)='getBookRecordById()'>Click Here</button>
+    <p><b>{{errorMsg}}</b></p>
+    
+      <table class="table table-striped">
+            <tr>
+              <th>bookid</th>&nbsp;&nbsp;;
+              <th>booktitle</th>&nbsp;&nbsp;
+              <th>ISBNno</th>&nbsp;&nbsp;;
+              <th>noOfpages</th>&nbsp;&nbsp;
+              <th>Ratings</th>&nbsp;&nbsp;
+              <th>price</th>&nbsp;&nbsp;
+              <th>bookpublicationdate</th>&nbsp;&nbsp;
+            </tr>
+            
+            <br>
+
+        <!--Directives -->
+        <div *ngIf="errorStatus">
+           <tr *ngFor="let data of bookapiResponse.data">
+                <td>{{data.bookid | uppercase}}</td>&nbsp;&nbsp;
+                <td>{{data.booktitle | titlecase}}</td>&nbsp;&nbsp;
+                <td>{{data.bookisbnNo | uppercase}}</td>&nbsp;&nbsp;
+                <td>{{data.totalpage}}</td>&nbsp;&nbsp;
+                <td>{{data.bookrating}}</td>&nbsp;&nbsp;
+                <td>{{data.bookprice}}</td>&nbsp;&nbsp;
+                <td>{{data.bookpublicationdate | date:'fullDate'}}</td>&nbsp;&nbsp;
+            </tr>
+          </div>   
+        <br>
+      </table> 
+
+      <!-- <p *ngIf="!errorStatus"><b>{{errorMsg}}</b></p> -->
+    </div>
+    

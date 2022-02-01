@@ -1,0 +1,35 @@
+<h2>Book Details:</h2>
+
+    <div class="book-container">
+      <table class="table table-striped">
+            <tr>
+              <th>bookid</th>&nbsp;&nbsp;;
+              <th>booktitle</th>&nbsp;&nbsp;
+              <th>ISBNno</th>&nbsp;&nbsp;;
+              <th>bookprice</th>&nbsp;&nbsp;;
+              <th>noOfpages</th>&nbsp;&nbsp;
+              <th>printdate</th>&nbsp;&nbsp;
+              <th>authorname</th>&nbsp;&nbsp;
+              <th>bookimage</th>&nbsp;&nbsp;
+              <th>authorimage</th>
+            </tr>
+            
+            <br>
+
+        <!--Directives -->
+           <tr *ngFor="let book of bookDetails">
+                <td>{{book.bookid | uppercase}}</td>&nbsp;&nbsp;
+                <td>{{book.booktitle | titlecase}}</td>&nbsp;&nbsp;
+                <td>{{book.ISBNno | uppercase}}</td>&nbsp;&nbsp;
+                <td>{{book.bookprice}}</td>&nbsp;&nbsp;
+                <td>{{book.noOfpages}}</td>&nbsp;&nbsp;
+                <td>{{book.printdate | date:'fullDate'}}</td>&nbsp;&nbsp;
+                <td>{{book.authorname | titlecase}}</td>&nbsp;&nbsp;
+                <td><img [src]="book.bookimagepath" height="100px" width="100px"/></td>&nbsp;&nbsp;
+                <td><img [src]="book.authorimagepath" height="100px" width="100px"/></td>
+            </tr>
+        <br>
+
+        </table>
+    </div>
+    

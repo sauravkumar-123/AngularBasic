@@ -1,0 +1,46 @@
+.outer-container{
+    background-color: blue;
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+}
+
+.inner-container{
+    background-color: silver;
+    text-align: center;
+    text-decoration: solid;
+    height: auto;
+    width: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.product-detail{
+    background-color:yellowgreen;
+    text-align: center;
+    text-decoration: solid;
+    height: auto;
+    width: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.form-concept{
+    background-color:darkseagreen;
+    text-align: center;
+    text-decoration: solid;
+    height: auto;
+    width: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.parent-child{
+    background-color: honeydew;
+    text-align: center;
+    text-decoration: solid;
+    height: auto;
+    width: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+}

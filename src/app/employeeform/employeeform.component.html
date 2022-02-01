@@ -1,0 +1,93 @@
+<div class="contact-container">
+    <h2>Employee Skill Set Form....</h2>
+
+    <form class="row g-3" #employeeForm="ngForm" (ngSubmit)=addSkill()> 
+        <!-- <p>
+            Valid Form:{{employeeForm.valid}} <br>
+            pristine:{{employeeForm.pristine}} <br>
+            touched:{{employeeForm.touched}} <br>
+            Dirty :{{employeeForm.valid}} <br>
+        </p> -->
+
+        <!-- <div class="col-md-6">                                                                                                                                                   
+            <label for="inputSkill" class="form-label">Skill</label>                                              
+            <select name="ngModel"  class="form-select" [(ngModel)]="employeeData.skillset" #skillset="ngModel" required chooseSkillset> <br>
+                <option value="choose">--Choose Skillset--</option>
+                <option [value]="skillset" *ngFor="let skillset of skillset">{{skillset}}</option>
+            </select>
+
+          <div *ngIf="(skillset.touched || skillset.dirty) && skillset.invalid" class="alert alert-danger">
+            <div *ngIf="skillset.errors?.required">
+                Skill is mandatory field.
+          </div>
+
+          <div *ngIf="skillset.errors?.chooseSkillset">
+              Choose a  chooseSkillset.
+         </div>
+        </div>
+      </div> -->
+
+        <div class="col-md-6">
+          <label for="inputName" class="form-label">Employee Name</label>
+          <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="employeeData.employeename" required #employeeName="ngModel"><br>
+          <div *ngIf="(employeeName.touched || employeeName.dirty) && employeeName.invalid" class="alert alert-danger">
+              <div *ngIf="employeeName.errors?.required">
+                EmployeeName is mandatory.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)]="employeeData.address" required minlength="10" maxlength="100" #employeeAddress="ngModel"><br>
+            <div *ngIf="(employeeAddress.touched || employeeAddress.dirty) && employeeAddress.invalid" class="alert alert-danger">
+                <div *ngIf="employeeAddress.errors?.required">
+                  Address is mandatory.
+              </div>
+              <div *ngIf="employeeAddress.errors?.minlength">
+                  Minimum length should be 10.
+              </div>
+              <div *ngIf="employeeAddress.errors?.maxlength">
+                  Maximum length should be 100.
+              </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="inputEmail" name="inputEmail" [(ngModel)]="employeeData.email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #email="ngModel"> <br>
+  
+            <div *ngIf="(email.touched || email.dirty) && email.invalid" class="alert alert-danger">
+              <div *ngIf="email.errors?.required">
+                Email is required.
+              </div>
+              <div *ngIf="email.errors?.pattern">
+                  Invalid Email.
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="inputMobno" class="form-label">Contact No</label>
+            <input type="text" class="form-control" id="inputMobno" name="inputMobno" [(ngModel)]="employeeData.contactno" required maxlength="10" pattern="[0-9]{10}$" #mobno="ngModel"> <br>
+  
+            <div *ngIf="(mobno.touched || mobno.dirty) && mobno.invalid" class="alert alert-danger">
+              <div *ngIf="mobno.errors?.required">
+                Mobile Number is required.
+              </div>
+              <div *ngIf="mobno.errors?.maxlength">
+                Only 10 digit allowed. 
+            </div>
+              <div *ngIf="mobno.errors?.pattern">
+                  Invalid Mob No.
+              </div>
+            </div>
+          </div>
+    
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Submit</button> &nbsp;
+          <button type="reset" class="btn btn-primary">Clear</button>
+        </div>
+
+      </form> 
+</div>

@@ -1,0 +1,9 @@
+.contact-container{
+    background-color: rgb(red, green, blue);
+    text-align: center;
+    text-decoration: solid;
+    height: auto;
+    width: auto;
+    margin-left: 150px;
+    margin-right: 150px;
+}

@@ -1,0 +1,131 @@
+
+<div class="contact-reactivecontainer">
+    <h2>Contact ReactiveForm....</h2>
+
+    <form class="row g-2" [formGroup]="contactForm" (ngSubmit)=addContact()> 
+        <!-- <p>
+            Valid Form:{{contactForm.valid}} <br>
+            pristine:{{contactForm.pristine}} <br>
+            touched:{{contactForm.touched}} <br>
+            Dirty :{{contactForm.valid}} <br>
+        </p> -->
+
+        <div class="col-md-6">
+          <label for="inputName" class="form-label">Contact Name</label>
+          <input type="text" class="form-control" id="inputName" name="inputName" formControlName="contactName"><br>
+
+          <!-- <div *ngIf="contactForm.controls['contactName'].hasError('required') && (contactForm.controls['contactName'].touched || contactForm.controls['contactName'].dirty)"  class="alert alert-danger"> -->
+            
+            <div *ngIf="contactForm.controls['contactName'].hasError('required') && contactForm.controls['contactName'].touched" class="alert alert-danger">
+              ContactName is mandatory.
+           </div>
+          
+           <div *ngIf="contactForm.controls['contactName'].hasError('minlength') && contactForm.controls['contactName'].touched" class="alert alert-danger">
+              Minimum length should be 5.
+         </div>
+
+          <div *ngIf="contactForm.controls['contactName'].hasError('maxlength') && contactForm.controls['contactName'].touched" class="alert alert-danger">
+              Maximum length should be 30.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="inputEmail" name="inputEmail" formControlName="Email"> <br>
+
+            <div *ngIf="contactForm.controls['Email'].hasError('required') && contactForm.controls['Email'].touched" class="alert alert-danger">
+                Email is mandatory.
+            </div>
+            
+            <div *ngIf="contactForm.controls['Email'].hasError('pattern') && contactForm.controls['Email'].touched" class="alert alert-danger">
+                Invalid Email.
+           </div>
+        </div>
+  
+        <div class="col-md-6">
+            <label for="inputMobno" class="form-label">Mob No</label>
+            <input type="text" class="form-control" id="inputMobno" name="inputMobno" formControlName="MobNo"> <br>
+
+            <div *ngIf="contactForm.controls['MobNo'].hasError('required') && contactForm.controls['MobNo'].touched" class="alert alert-danger">
+                MobNo is mandatory.
+            </div>
+            
+            <div *ngIf="contactForm.controls['MobNo'].hasError('pattern') && contactForm.controls['MobNo'].touched" class="alert alert-danger">
+                Invalid MobNo.
+           </div>
+        </div>
+
+          <!-- <div class="col-md-6">
+            <label for="inputDob" class="form-label">DOB</label>
+            <input type="date" class="form-control" id="inputDob" name="inputDob" [(ngModel)]="contactFormData.dob" required #dob="ngModel"> <br>
+  
+            <div *ngIf="(dob.touched || dob.dirty) && dob.invalid" class="alert alert-danger">
+              <div *ngIf="dob.errors?.required">
+                Birth Date is required.
+              </div>
+              <div *ngIf="dob.errors?.pattern">
+                  Invalid Birth Date.
+              </div>
+            </div>
+          </div> -->
+
+
+        <div class="col-6">
+            <label for="inputOrganization" class="form-label">Organization</label>
+            <input type="text" class="form-control" id="inputOrganization" name="inputOrganization" formControlName="Organization"><br>
+
+            <div *ngIf="contactForm.controls['Organization'].hasError('required') && contactForm.controls['Organization'].touched" class="alert alert-danger">
+                Organization is mandatory.
+            </div>
+            
+        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+        <div class="col-md-6">                                                                                                                                                   
+            <label for="inputDesignation" class="form-label">Designation</label>                                              
+            <select name="ngModel"  class="form-select" formControlName="Designation"> <br>
+                <option value="choose">--Choose Designation--</option>
+                <option [value]="designation" *ngFor="let designation of designations">{{designation}}</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="inputDesignation" name="inputDesignation" [(ngModel)]="contactFormData.designation" required maxlength="30" #designation="ngModel"><br>
+  
+            <div *ngIf="(designation.touched || designation.dirty) && designation.invalid" class="alert alert-danger">
+              <div *ngIf="designation.errors?.required">
+                  Designation is mandatory field.                                                    
+            </div>
+            <div *ngIf="designation.errors?.maxlength">                                                                                                                                                                                                         
+                Maximum 30 character allowed only.
+            </div>
+          </div> -->
+
+          <div *ngIf="contactForm.controls['Designation'].hasError('required') && contactForm.controls['Designation'].touched" class="alert alert-danger">
+            Designation is mandatory.
+        </div>
+        </div>
+
+        <div class="col-6">
+            <label for="inputCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="inputCity" name="inputCity" formControlName="City"> <br>
+
+            <div *ngIf="contactForm.controls['City'].hasError('required') && contactForm.controls['City'].touched" class="alert alert-danger">
+                City is mandatory.
+            </div>
+        </div>
+  
+
+        <div class="col-6">
+          <label for="inputState" class="form-label">State</label>
+          <input type="text" class="form-control" id="inputState" name="inputState" formControlName="State"> <br>
+
+          <div *ngIf="contactForm.controls['State'].hasError('required') && contactForm.controls['State'].touched" class="alert alert-danger">
+            State is mandatory.
+        </div>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button> &nbsp;
+          <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+
+      </form> 
+</div>
+
